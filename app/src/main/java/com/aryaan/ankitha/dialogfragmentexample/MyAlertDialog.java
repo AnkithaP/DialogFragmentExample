@@ -20,10 +20,17 @@ public class MyAlertDialog extends DialogFragment {
 
         builder.setTitle("My Dialog");
         //builder.setMessage("Please choose any of the option");
-        builder.setItems(R.array.days, new DialogInterface.OnClickListener() {
+        /*builder.setItems(R.array.days, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getActivity(), "The item selected is "+i, Toast.LENGTH_SHORT).show();
+            }
+        });*/
+
+        builder.setMultiChoiceItems(R.array.days, null, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                Toast.makeText(getActivity(), "the item "+i+" is checked "+b, Toast.LENGTH_SHORT).show();
             }
         });
 
